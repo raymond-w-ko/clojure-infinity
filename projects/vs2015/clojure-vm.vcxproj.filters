@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="_precompiled">
+      <UniqueIdentifier>{9025ea89-ae26-4a53-bda0-09336c7318e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="main">
+      <UniqueIdentifier>{3b2078b6-3973-4015-890f-836ce786eb4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="base">
+      <UniqueIdentifier>{760c6964-9d84-477a-a236-6eddf4dd0ec3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\cljvm_precompiled.h">
+      <Filter>_precompiled</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\cljvm_data_structures.h">
+      <Filter>base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\cljvm_mem.h">
+      <Filter>base</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\cljvm_precompiled.c">
+      <Filter>_precompiled</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_persistent_hash_map.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_persistent_list.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_string.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_mem.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_main.c">
+      <Filter>main</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

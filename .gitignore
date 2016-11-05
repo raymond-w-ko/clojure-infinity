@@ -1,3 +1,8 @@
+# Projects
+/projects/vs*/.vs
+/projects/vs*/x86/
+/projects/vs*/x64/
+
 # Compiled Object files
 *.slo
 *.lo
