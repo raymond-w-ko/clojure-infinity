@@ -21,6 +21,9 @@
     <ClInclude Include="..\..\src\cljvm_mem.h">
       <Filter>base</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\cljvm_murmur3.h">
+      <Filter>base</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\cljvm_precompiled.c">
@@ -40,6 +43,12 @@
     </ClCompile>
     <ClCompile Include="..\..\src\cljvm_main.c">
       <Filter>main</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_murmur3.c">
+      <Filter>base</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_float.c">
+      <Filter>base</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

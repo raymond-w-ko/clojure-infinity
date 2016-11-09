@@ -19,8 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\cljvm_float.c" />
     <ClCompile Include="..\..\src\cljvm_main.c" />
     <ClCompile Include="..\..\src\cljvm_mem.c" />
+    <ClCompile Include="..\..\src\cljvm_murmur3.c" />
     <ClCompile Include="..\..\src\cljvm_persistent_hash_map.c" />
     <ClCompile Include="..\..\src\cljvm_persistent_list.c" />
     <ClCompile Include="..\..\src\cljvm_precompiled.c">
@@ -34,6 +36,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\cljvm_data_structures.h" />
     <ClInclude Include="..\..\src\cljvm_mem.h" />
+    <ClInclude Include="..\..\src\cljvm_murmur3.h" />
     <ClInclude Include="..\..\src\cljvm_precompiled.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
