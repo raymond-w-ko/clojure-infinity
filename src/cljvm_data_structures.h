@@ -6,10 +6,15 @@ typedef struct cljvm_object {
   void** vtable;
 } cljvm_object;
 
-typedef struct cljvm_number {
+typedef struct cljvm_integer {
   struct cljvm_object base;
-  double number;
-} cljvm_number;
+  int64_t value;
+} cljvm_integer;
+
+typedef struct cljvm_float {
+  struct cljvm_object base;
+  double value;
+} cljvm_float;
 
 typedef struct cljvm_string {
   struct cljvm_object base;
@@ -52,20 +57,24 @@ typedef enum {
   cljvm_vfn_lookup_first,
   cljvm_vfn_lookup_next,
   cljvm_vfn_lookup_more,
+  // hashing
+  cljvm_vfn_lookup_hasheq,
   // number of virtual functions
   cljvm_number_of_vfuncs,
 } cljvm_vfunction;
 
 typedef size_t (*cljvm_vfn_count)(void* thiz);
+typedef int32_t (*cljvm_vfn_hasheq)(void* thiz);
 
 /******************************************************************************
  * init functions
  *****************************************************************************/ 
+void cljvm_float_init();
 void cljvm_string_init();
 void cljvm_plist_init();
 void cljvm_empty_plist_init();
 
-cljvm_number* cljvm_number_new(double n);
+cljvm_float* cljvm_float_new(double value);
 
 cljvm_string* cljvm_string_new(const char* str, size_t len);
 
