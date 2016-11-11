@@ -8,23 +8,13 @@ void debug_print_size() {
 }
 
 void cljvm_init() {
+  /* init boolean first, due to creating of "true" and "false" */
+  cljvm_boolean_init();
   cljvm_float_init();
   cljvm_string_init();
   cljvm_plist_init();
   cljvm_empty_plist_init();
 }
-
-/* clang-format off */
-#define CLJVM_CALL(NAME, OBJECT, ...)                                            \
-  (                                                                              \
-    (cljvm_vfn_ ## NAME)                                                         \
-    (                                                                            \
-      ((void**)(((size_t)((cljvm_object*)OBJECT)->vtable) & (((size_t)-1) - 1))) \
-      [cljvm_vfn_lookup_ ## NAME]                                                \
-    )                                                                            \
-  )                                                                              \
-  (OBJECT, __VA_ARGS__);
-/* clang-format on */
 
 int cljvm_get_gray(void* obj) {
   return *((size_t*)obj) & 0b1;
@@ -68,8 +58,7 @@ int main() {
   cljvm_init();
   
   void* obj = cljvm_float_new(3.14159);
-  int32_t h = CLJVM_CALL(hasheq, obj);
-  printf("hasheq(3.14) = %d\n", h);
+  printf("hasheq(3.14) = %d\n",  CLJVM_CALL(hasheq, obj));
   
   return 0;
 }

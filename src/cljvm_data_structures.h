@@ -50,15 +50,27 @@ typedef struct cljvm_phash {
 /******************************************************************************
  * Virtual Functions
  *****************************************************************************/ 
+/* clang-format off */
+#define CLJVM_CALL(NAME, OBJECT, ...)                                            \
+  (                                                                              \
+    (cljvm_vfn_ ## NAME)                                                         \
+    (                                                                            \
+      ((void**)(((size_t)((cljvm_object*)OBJECT)->vtable) & (((size_t)-1) - 1))) \
+      [cljvm_vfn_lookup_ ## NAME]                                                \
+    )                                                                            \
+  )                                                                              \
+  (OBJECT, __VA_ARGS__)
+/* clang-format on */
+
 typedef enum {
-  cljvm_vfn_RESERVED = 0,
+  // hashing
+  cljvm_vfn_lookup_hasheq,
+  // default
   cljvm_vfn_lookup_count,
   // Seq interface
   cljvm_vfn_lookup_first,
   cljvm_vfn_lookup_next,
   cljvm_vfn_lookup_more,
-  // hashing
-  cljvm_vfn_lookup_hasheq,
   // number of virtual functions
   cljvm_number_of_vfuncs,
 } cljvm_vfunction;
@@ -69,10 +81,14 @@ typedef int32_t (*cljvm_vfn_hasheq)(void* thiz);
 /******************************************************************************
  * init functions
  *****************************************************************************/ 
+void cljvm_boolean_init();
 void cljvm_float_init();
 void cljvm_string_init();
 void cljvm_plist_init();
 void cljvm_empty_plist_init();
+
+cljvm_boolean* cljvm_get_false();
+cljvm_boolean* cljvm_get_true();
 
 cljvm_float* cljvm_float_new(double value);
 
