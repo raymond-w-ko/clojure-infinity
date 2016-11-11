@@ -50,5 +50,8 @@
     <ClCompile Include="..\..\src\cljvm_float.c">
       <Filter>base</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\cljvm_boolean.c">
+      <Filter>base</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

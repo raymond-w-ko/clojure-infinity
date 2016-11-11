@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\cljvm_boolean.c" />
     <ClCompile Include="..\..\src\cljvm_float.c" />
     <ClCompile Include="..\..\src\cljvm_main.c" />
     <ClCompile Include="..\..\src\cljvm_mem.c" />
