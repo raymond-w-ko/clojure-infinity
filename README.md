@@ -1,2 +1,2 @@
-# clojure-infinity
+# omni-clojure
 A VM dedicated to running Clojure
