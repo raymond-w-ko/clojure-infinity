@@ -31,9 +31,9 @@
  */
 
 /**
- * Modified yet again for the Clojure VM
+ * Modified yet again for the omni-clojure project
  */
-#include "cljvm_precompiled.h"
+#include "precompiled.h"
 
 
 uint32_t rotate_left(uint32_t value, int shift) {

@@ -1,6 +1,6 @@
-#include "cljvm_precompiled.h"
-#include "cljvm_data_structures.h"
-#include "cljvm_murmur3.h"
+#include "precompiled.h"
+#include "data_structures.h"
+#include "murmur3.h"
 
 void debug_print_size() {
   printf("cljvm_string %zd\n", sizeof(cljvm_string));

@@ -1,6 +1,6 @@
-#include "cljvm_precompiled.h"
-#include "cljvm_data_structures.h"
-#include "cljvm_mem.h"
+#include "precompiled.h"
+#include "data_structures.h"
+#include "mem.h"
 
 static void* empty_plist_vtable[cljvm_number_of_vfuncs];
 static cljvm_empty_plist* EMPTY = NULL;

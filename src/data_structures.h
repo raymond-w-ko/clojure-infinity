@@ -1,5 +1,5 @@
 #pragma once
-#include "cljvm_precompiled.h"
+#include "precompiled.h"
 
 /* all GC-able objects must have this as the first member */
 typedef struct cljvm_object {

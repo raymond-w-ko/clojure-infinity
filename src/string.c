@@ -1,6 +1,6 @@
-#include "cljvm_precompiled.h"
-#include "cljvm_data_structures.h"
-#include "cljvm_mem.h"
+#include "precompiled.h"
+#include "data_structures.h"
+#include "mem.h"
 
 static void* string_vtable[cljvm_number_of_vfuncs];
 
