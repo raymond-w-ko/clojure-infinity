@@ -1,5 +1,5 @@
 # Projects
-/projects/vs*/.vs
+.vs
 /projects/vs*/x86/
 /projects/vs*/x64/
 
