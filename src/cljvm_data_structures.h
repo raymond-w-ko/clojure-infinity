@@ -20,7 +20,7 @@ typedef struct cljvm_string {
   struct cljvm_object base;
   size_t _count;
   int32_t _hash;
-  uint8_t _value[];
+  const uint8_t _value[];
 } cljvm_string;
 
 typedef struct cljvm_boolean {
@@ -29,6 +29,11 @@ typedef struct cljvm_boolean {
    * don't really save any space by using a char */
   size_t _boolean;
 } cljvm_boolean;
+
+typedef struct cljvm_empty_plist {
+  struct cljvm_object base;
+  void* _meta;
+} cljvm_empty_plist;
 
 typedef struct cljvm_plist {
   struct cljvm_object base;
@@ -71,12 +76,14 @@ typedef enum {
   cljvm_vfn_lookup_first,
   cljvm_vfn_lookup_next,
   cljvm_vfn_lookup_more,
+  cljvm_vfn_lookup_cons,
   // number of virtual functions
   cljvm_number_of_vfuncs,
 } cljvm_vfunction;
 
 typedef size_t (*cljvm_vfn_count)(void* thiz);
 typedef int32_t (*cljvm_vfn_hasheq)(void* thiz);
+typedef void* (*cljvm_vfn_cons)(void* thiz, void* item);
 
 /******************************************************************************
  * init functions
@@ -94,4 +101,5 @@ cljvm_float* cljvm_float_new(double value);
 
 cljvm_string* cljvm_string_new(const char* str, size_t len);
 
-cljvm_plist* cljvm_plist_new(void* _meta, void* _first, cljvm_plist* _rest, size_t _count);
+cljvm_empty_plist* cljvm_get_empty_plist();
+cljvm_plist* cljvm_plist_new(void* _meta, void* _first, void* _rest, size_t _count);

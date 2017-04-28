@@ -1,7 +1,7 @@
 #include "cljvm_precompiled.h"
 
 /* For those who don't know what this means, this is the Hamming Weight of the
- * value in binary. Alternatively, image the 1's of a value written in binary
+ * value in binary. Alternatively, imagine the 1's of a value written in binary
  * are people standing up, and we want to get the population count or popcnt.*/
 static uint32_t bit_count(uint32_t value) {
   return __popcnt(value);

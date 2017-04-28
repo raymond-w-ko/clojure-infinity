@@ -12,8 +12,8 @@ void cljvm_init() {
   cljvm_boolean_init();
   cljvm_float_init();
   cljvm_string_init();
-  cljvm_plist_init();
   cljvm_empty_plist_init();
+  cljvm_plist_init();
 }
 
 int cljvm_get_gray(void* obj) {

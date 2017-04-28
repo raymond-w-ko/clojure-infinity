@@ -10,8 +10,10 @@ cljvm_string* cljvm_string_new(const char* str, size_t str_len) {
   s->base.vtable = string_vtable;
   s->_count = str_len;
   s->_hash = 0;
-  memcpy(s->_value, str, str_len);
-  s->_value[str_len] = '\0';
+  /* override const to write bytes */
+  uint8_t* bytes = (void*)s->_value;
+  memcpy(bytes, str, str_len);
+  bytes[str_len] = '\0';
   return s;
 }
 
